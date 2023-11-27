@@ -18,10 +18,3 @@
     }
 
 ?>
-<p>
-    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam, consequuntur reiciendis! Obcaecati, magni vitae voluptatibus neque earum veniam veritatis recusandae nobis, voluptates natus sit enim. Expedita dicta nihil veniam commodi!
-</p>
-<p>
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia veritatis ea eligendi quo rem perferendis laboriosam, aut culpa doloremque illo illum modi tempore vel nobis! Dolor nobis explicabo quod enim?
-</p>
-<h1>Papi Ujah Homes</h1>
