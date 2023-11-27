@@ -1,3 +1,7 @@
+-- Create Database
+CREATE DATABASE buymore_db
+
+
 -- Create the Products Table
 CREATE TABLE products (
 	product_id INT UNSIGNED AUTO_INCREMENT NOT NULL PRIMARY KEY,
