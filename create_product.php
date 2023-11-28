@@ -8,7 +8,7 @@
 
     // Validation  
     $pierr = $pnerr = $iperr = $sperr = $pderr = "";
-    $product_image = $product_name = $product_category = $initial_price = $selling_price = $product_description = "";
+    $product_image = $product_name = $product_category = $initial_price = $selling_price = $product_description = $vendor_id =  "";
     
     if($_SERVER['REQUEST_METHOD'] == 'POST') {
         // Sanitize the input parameters pass by users to avoid XSS vulnerabilities
@@ -26,6 +26,7 @@
         $selling_price = sanitizeInput($_POST['selling_price']);
         $product_description = sanitizeInput($_POST['product_description']);
         $product_image = $_FILES['product_image'];
+        $vendor_id = $_SESSION['user_id'];
 
         if ($selling_price >= $initial_price) {
             $iperr = "Initial price is less than Selling price";
@@ -62,6 +63,18 @@
     
         } else {
             $pierr = "Image Size is bigger than 3mb";
+        }
+
+        // $pierr = $pnerr = $iperr = $sperr = $pderr = "";
+        if (empty($pierr) && empty($pnerr) && empty($iperr) && empty($sperr) && empty($pderr)){
+            $sql = "INSERT INTO products(product_name, product_category, product_description, initial_price, selling_price, product_image, vendor_id) VALUES ('$product_name','$product_category','$product_description','$initial_price','$selling_price','$targetFilePath', '$vendor_id')";
+        }
+
+        if(mysqli_query($conn, $sql)) {
+            echo "<h1>Product Created Successfully</h1>";
+            $product_image = $product_name = $product_category = $initial_price = $selling_price = $product_description = $vendor_id =  "";
+        } else {
+            echo "<h1>Product Creation Failed</h1>";
         }
         
     }
