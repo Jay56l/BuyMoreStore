@@ -14,7 +14,7 @@
         $password = $_POST['password'];
 
         // Validating username and password
-        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $sql = "SELECT * FROM users WHERE email = '$email' OR username = '$email' OR phonenumber = '$phonenumber'";
         $result = mysqli_query($conn, $sql);
         if (mysqli_num_rows($result) == 1) {
             $user = mysqli_fetch_assoc($result);
